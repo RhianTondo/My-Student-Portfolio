@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rhian | My Student Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      background: linear-gradient(to bottom, #87ceeb, #d6f0ff);
+      color: #1e3a5f;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top, rgba(255,255,255,0.5), transparent 60%);
+      z-index: 0;
+    }
+
+    .container {
+      margin-top: 80px;
+      padding: 25px;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-bottom: 10px;
+      animation: floatText 4s ease-in-out infinite;
+    }
+
+    p {
+      font-size: 17px;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background: linear-gradient(135deg, #1e90ff, #63b3ff);
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+      letter-spacing: 1px;
+      box-shadow: 0 5px 15px rgba(30,144,255,0.3);
+    }
+
+    .btn:hover {
+      transform: scale(1.07);
+      background: linear-gradient(135deg, #0f6fd6, #3aa0ff);
+    }
+
+    .cloud {
+      position: fixed;
+      width: 140px;
+      height: 70px;
+      background: white;
+      border-radius: 50px;
+      opacity: 0.75;
+      animation: moveCloud linear infinite;
+      z-index: 1;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: "";
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .cloud::before {
+      width: 70px;
+      height: 70px;
+      top: -35px;
+      left: 15px;
+    }
+
+    .cloud::after {
+      width: 90px;
+      height: 90px;
+      top: -45px;
+      right: 10px;
+    }
+
+    @keyframes moveCloud {
+      from { transform: translateX(-200px); }
+      to { transform: translateX(120vw); }
+    }
+
+    .bubble {
+      position: fixed;
+      bottom: -20px;
+      width: 8px;
+      height: 8px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 50%;
+      animation: rise linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes rise {
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+
+    @keyframes floatText {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<script>
+for (let i = 0; i < 6; i++) {
+  let cloud = document.createElement("div");
+  cloud.className = "cloud";
+  cloud.style.top = Math.random() * 50 + "vh";
+  cloud.style.animationDuration = (Math.random() * 20 + 20) + "s";
+  document.body.appendChild(cloud);
+}
+</script>
+
+<script>
+for (let i = 0; i < 30; i++) {
+  let bubble = document.createElement("div");
+  bubble.className = "bubble";
+  bubble.style.left = Math.random() * 100 + "vw";
+  bubble.style.animationDuration = (Math.random() * 5 + 5) + "s";
+  bubble.style.opacity = Math.random();
+  document.body.appendChild(bubble);
+}
+</script>
+
+<div class="container">
+  <h1>Hi, I'm Rhian </h1>
+
+  <p>
+    BSIT – SOUTH7
+  </p>
+
+  <a href="portfolio.pdf" target="_blank" class="btn">
+    VIEW FULL PORTFOLIO
+  </a>
+</div>
+
+</body>
+</html>
